@@ -18,11 +18,11 @@ namespace AzureBlobStorage_FileLocating.Controllers
 
 
         [HttpGet("GetUrl")]
-        public async Task<IActionResult> GetUrlAsync(string fileName)
+        public IActionResult GetUrlAsync(string fileName)
         {
             try
             {
-                var result = await _storageManager.GetSignedUrlAsync(fileName);
+                var result = _storageManager.GetSignedUrl(fileName);
                 return Ok(result);
             }
             catch (Exception)
